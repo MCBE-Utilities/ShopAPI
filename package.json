@@ -1,0 +1,22 @@
+{
+  "name": "shopapi",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "beapiModule": true,
+  "include": [
+    "scripts",
+    "manifest.json",
+    "animation_controllers",
+    "entities",
+    "pack_icon.png"
+  ],
+  "scripts": {
+    "build": "tsc && beapi build",
+    "bundle": "tsc && beapi bundle"
+  },
+  "dependencies": {
+    "beapi-core": "file:../../../../../../../../../Desktop/BeAPI_1.18.20/packages/beapi",
+    "beapi-monorepo": "file:../../../../../../../../../Desktop/BeAPI_1.18.20",
+    "typescript": "^4.5.4"
+  }
+}
