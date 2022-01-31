@@ -15,8 +15,7 @@
     "bundle": "tsc && beapi bundle"
   },
   "dependencies": {
-    "beapi-core": "file:../../../../../../../../../Desktop/BeAPI_1.18.20/packages/beapi",
-    "beapi-monorepo": "file:../../../../../../../../../Desktop/BeAPI_1.18.20",
+    "beapi-core": "file:../../../../../../../../../OneDrive/Desktop/BeAPI_1.18.20/packages/beapi",
     "typescript": "^4.5.4"
   }
 }

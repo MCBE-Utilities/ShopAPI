@@ -1,5 +1,5 @@
 import { Player } from 'beapi-core'
-import { addCategory, addItem } from './index.js'
+import { addCategory, addItem, viewCategory } from './index.js'
 
 export function editShop(player: Player): void {
     const form = player.createActionForm()
@@ -14,6 +14,8 @@ export function editShop(player: Player): void {
                     return addCategory(player)
                 case 1:
                     return addItem(player)
+                case 2: 
+                    return viewCategory(player)
             }
         })
 }
