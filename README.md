@@ -1,6 +1,6 @@
 # ShopAPI
 
-ShopAPI is a [BeAPI](https://github.com/MCBE-Utilities/BeAPI) module that world/server owners to create unique shops for their maps.
+ShopAPI is a [BeAPI](https://github.com/MCBE-Utilities/BeAPI) module that allows world/server owners to create unique shops for their maps.
 
 ## Installing
 * Requirements
