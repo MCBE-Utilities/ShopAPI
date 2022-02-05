@@ -1,17 +1,14 @@
 import { genUuid } from 'beapi-core'
-import { Database } from 'beapi-core'
-import { Category, Item } from './models/index.js'
+import { categoryModel, itemModel } from './models/index.js'
 
-export const db = new Database('ShopAPI')
-
-export const categoryCollection = db.mount<string, Category>('categories')
-export const itemCollection = db.mount<string, Item>('items')
+export const categoryCollection = categoryModel
+export const itemCollection = itemModel
 
 export function addCategory(name: string, type: string, icon?: string): {added: boolean, categoryId?: string} {
-  if (categoryCollection.values().find((x) => x.name === name)) return { added: false }
+  if (categoryCollection.findAll({}).find((x) => x.name === name)) return { added: false }
 
   const id = genUuid()
-  categoryCollection.set(id, {
+  categoryCollection.write({
       _id: id,
       name: name,
       type: type,
@@ -25,10 +22,10 @@ export function addCategory(name: string, type: string, icon?: string): {added: 
 }
 
 export function addItem(displayName: string, minecraftId: string, dataValue: number, categoryId: string, sellPrice: number, buyPrice: number, icon?: string): {added: boolean, itemId?: string} {
-  if (itemCollection.values().find((x) => x.name === displayName && x.category === categoryId)) return { added: false }
+  if (itemCollection.findAll({}).find((x) => x.name === displayName && x.category === categoryId)) return { added: false }
 
   const id = genUuid()
-  itemCollection.set(id, {
+  itemCollection.write({
       _id: id,
       name: displayName,
       id: minecraftId,

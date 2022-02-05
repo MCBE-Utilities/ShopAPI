@@ -4,7 +4,7 @@ import { editShop, addCategory } from './index.js'
 
 export function addItem(player: Player, title = 'Enter an item you would like to add.'): void {
     const categories: string[] = []
-    for (const c of categoryCollection.values()) {
+    for (const c of categoryCollection.findAll({})) {
         categories.push(c.name)
     }
     if (categories.length === 0) return addCategory(player, '§cNo categories found. You must add a category before you add an item.')
@@ -19,9 +19,9 @@ export function addItem(player: Player, title = 'Enter an item you would like to
         .addInput('Buy Amount', '200')
         .send((res) => {
             if (res.isCanceled || res.formValues[0] === '') return editShop(player)
-            const category = categoryCollection.values().find((x) => x.name === categories[res.formValues[3]])
+            const category = categoryCollection.findAll({}).find((x) => x.name === categories[res.formValues[3]])
             const id = genUuid()
-            itemCollection.set(id, {
+            itemCollection.write({
                 _id: id,
                 name: res.formValues[2],
                 id: res.formValues[0],

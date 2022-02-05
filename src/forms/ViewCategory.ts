@@ -5,7 +5,7 @@ import { editCategory, editShop, deleteCategory, editItem } from './index.js'
 export function viewCategory(player: Player): void {
   const form = player.createActionForm()
   form.title = 'Viewing Categories'
-  const categories = categoryCollection.values()
+  const categories = categoryCollection.findAll({})
   if (categories.length === 0) {
       form.body = '§cNo categories found. Try adding some!'
       form.addButton('Edit Shop')
@@ -21,8 +21,8 @@ export function viewCategory(player: Player): void {
 }
 
 export function view(player: Player, categoryId: string): void {
-  const category = categoryCollection.get(categoryId)
-  const items = itemCollection.values().filter((x) => x.category === categoryId)
+  const category = categoryCollection.find({ _id: categoryId })
+  const items = itemCollection.findAll({}).filter((x) => x.category === categoryId)
   const form = player.createActionForm()
   form.title = `Viewing ${category.name}`
   form.addButton("Edit Category")

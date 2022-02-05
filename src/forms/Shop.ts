@@ -5,7 +5,7 @@ import { category, editShop } from './index.js'
 export function shop(player: Player): void {
     const form = player.createActionForm()
     form.title = 'Shop Categories'
-    const categories = categoryCollection.values()
+    const categories = categoryCollection.findAll({})
     if (categories.length === 0) {
         form.body = '§cNo categories found. Try adding some!'
         form.addButton('Edit Shop')

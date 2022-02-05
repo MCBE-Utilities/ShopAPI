@@ -10,9 +10,9 @@ export function addCategory(player: Player, title = 'Enter a category name you w
         .addInput('Texture Path', 'textures/blocks/diamond_ore.png')
         .send((res) => {
             if (res.isCanceled || res.formValues[0] === '') return editShop(player)
-            if (categoryCollection.values().find((x) => x.name === res.formValues[0])) return addCategory(player, `§cThe category "${res.formValues[0]}" already exists. Try a different name.`)
+            if (categoryCollection.findAll({}).find((x) => x.name === res.formValues[0])) return addCategory(player, `§cThe category "${res.formValues[0]}" already exists. Try a different name.`)
             const id = genUuid()
-            categoryCollection.set(id, {
+            categoryCollection.write({
                 _id: id,
                 name: res.formValues[0],
                 type: res.formValues[1],

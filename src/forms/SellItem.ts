@@ -4,7 +4,7 @@ import { category } from './index.js'
 import { getItemAmount } from '../utils/index.js'
 
 export function sellItem(player: Player, itemId: string): void {
-  const item = itemCollection.get(itemId)
+  const item = itemCollection.find({ _id: itemId })
   const form = player.createModalForm()
   form.title = `Selling x1 ${item.name} for $${item.sell}`
   form.addSlider('Amount', 1, 128, 1, 1)

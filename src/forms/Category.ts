@@ -3,8 +3,8 @@ import { categoryCollection, itemCollection } from '../database/index.js'
 import { shop, selectionPage, editShop } from './index.js'
 
 export function category(player: Player, categoryId: string): void {
-    const category = categoryCollection.get(categoryId)
-    const items = itemCollection.values().filter((x) => x.category === categoryId)
+    const category = categoryCollection.find({ _id: categoryId })
+    const items = itemCollection.findAll({}).filter((x) => x.category === categoryId)
     const form = player.createActionForm()
     if (items.length === 0) {
         form.body = '§cNo items found. Try adding some!'

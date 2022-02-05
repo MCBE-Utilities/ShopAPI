@@ -3,7 +3,7 @@ import { itemCollection } from '../database/index.js'
 import { category } from './index.js'
 
 export function buyItem(player: Player, itemId: string): void {
-  const item = itemCollection.get(itemId)
+  const item = itemCollection.find({ _id: itemId})
   const form = player.createModalForm()
   form.title = `Buying x1 ${item.name} for $${item.buy}`
   form.addSlider('Amount', 1, 128, 1, 1)

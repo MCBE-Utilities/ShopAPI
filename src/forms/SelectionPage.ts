@@ -3,7 +3,7 @@ import { itemCollection } from '../database/index.js'
 import { category, buyItem, sellItem } from './index.js'
 
 export function selectionPage(player: Player, itemId: string): void {
-  const item = itemCollection.get(itemId)
+  const item = itemCollection.find({ _id: itemId })
   const form = player.createActionForm()
   form.title = 'Buy or Sell'
   form.body = `Would you like to buy or sell §e${item.name}§r?`
