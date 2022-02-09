@@ -1,8 +1,17 @@
 {
-  "name": "shopapi",
+  "name": "@mcbceutils/shopapi",
+  "author": "PMK744",
+  "repository": "https://github.com/MCBE-Utilities/ShopAPI",
+  "homepage": "https://github.com/MCBE-Utilities/ShopAPI",
   "version": "1.0.0",
   "main": "dist/index.js",
   "beapiModule": true,
+  "module": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "exports": {
+    "import": "./dist/index.js",
+    "require": "./dist/index.js"
+  },
   "include": [
     "scripts",
     "manifest.json",
@@ -10,12 +19,15 @@
     "entities",
     "pack_icon.png"
   ],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc && beapi build",
     "bundle": "tsc && beapi bundle"
   },
   "dependencies": {
-    "beapi-core": "file:../../../../../../../../../OneDrive/Desktop/BeAPI/beta/packages/beapi",
+    "beapi-core": "file:../../../../../../../../../Desktop/BeAPI/beta/packages/beapi",
     "typescript": "^4.5.4"
   }
 }
